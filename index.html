@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Car Affordability Calculator (UK)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Car Affordability Calculator (UK)</h1>
+      <p>
+        Work out a reasonable monthly car budget based on your
+        <strong>household income after tax</strong>.
+      </p>
+    </header>
+
+    <main class="content">
+      <section class="card">
+        <h2>Your details</h2>
+        <form id="car-form">
+          <div class="field">
+            <label for="income">Net household income per month (£)</label>
+            <input
+              type="number"
+              id="income"
+              min="0"
+              step="50"
+              placeholder="e.g. 3000"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="other-debt">
+              Existing monthly debt payments (£)
+              <span class="hint">(loans, credit cards, etc. – optional)</span>
+            </label>
+            <input
+              type="number"
+              id="other-debt"
+              min="0"
+              step="10"
+              placeholder="e.g. 250"
+            />
+          </div>
+
+          <div class="field">
+            <label for="running-costs">
+              Estimated monthly running costs (£)
+              <span class="hint">(insurance, fuel, tax, maintenance – optional)</span>
+            </label>
+            <input
+              type="number"
+              id="running-costs"
+              min="0"
+              step="10"
+              placeholder="e.g. 200"
+            />
+          </div>
+
+          <button type="submit" class="button">Calculate</button>
+          <p id="error-message" class="error-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card results-card" id="results-card" aria-live="polite">
+        <h2>Your car budget</h2>
+        <div class="result-row">
+          <div class="result-label">Recommended finance payment (10% rule):</div>
+          <div class="result-value" id="safe-payment">–</div>
+        </div>
+        <div class="result-row">
+          <div class="result-label">Stretch finance limit (15% rule):</div>
+          <div class="result-value" id="stretch-payment">–</div>
+        </div>
+        <div class="result-row">
+          <div class="result-label">Max total car cost per month (20% all-in):</div>
+          <div class="result-value" id="all-in-limit">–</div>
+        </div>
+
+        <div class="result-row">
+          <div class="result-label">Estimated all-in cost (finance + running):</div>
+          <div class="result-value" id="estimated-all-in">–</div>
+        </div>
+
+        <p class="result-note" id="summary-note"></p>
+        <p class="result-note" id="debt-note"></p>
+      </section>
+
+      <section class="card">
+        <h2>How this works</h2>
+        <ul class="explanation-list">
+          <li>Many UK guides suggest keeping car finance around 10% of your net income, with 15–20% as an upper limit including running costs.[web:7][web:8][web:9][web:10][web:16][web:18]</li>
+          <li>This tool uses 10%, 15% and 20% of your monthly take-home as simple rules of thumb.</li>
+          <li>It also checks your other debts so you can see if you’re pushing your overall monthly commitments too high.[web:8][web:19][web:20]</li>
+          <li>This is not financial advice – treat it as a rough guide only.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built by You · For illustration only, not financial advice.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
